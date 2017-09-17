@@ -15,4 +15,24 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('!isYouCool')
+    if message.content.startswith('!isYouCool'):
+        await client.send_message(message.channel, 'Of course.')
+    elif message.content.startswith('!flip'):
+        flip = random.choice(['Heads','Tails'])
+        awaits client.send_message(message.channel, flip)
+    elif message.content.startswith('!addquote'):
+        if not os.path.isfile("quote_file.pk1"):
+            quote_list = []
+        else:
+            with open("quote_file.pk1", "rb") as quote_file:
+                quote_list = pickle.load(quote_file)
+        quote_list.append(message.content[9:])
+        with open("quote_file.pk1" "wb") as quote_file:
+            pickle.dump(quote_list, quote_file)
+    elif message.content.startswith("!quote"):
+            with open("quote_file.pk1", "rb") as quote_file:
+                quote_list = pickle.load(quote_file)
+            await client.send_message(message.channel, random.choice(quote_list))
+        
+client.run (#addToken from Discord server for bot authorisationk#)
+
